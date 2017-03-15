@@ -20,5 +20,8 @@ public class autoPlay : MonoBehaviour {
 			gameObject.GetComponent<VideoPlaybackBehaviour> ().enabled = true;
 			gameObject.GetComponent<VideoPlaybackBehaviour> ().VideoPlayer.Play (false, 0);
 		}
+		if(gameObject.GetComponent<VideoPlaybackBehaviour> ().CurrentState == VideoPlayerHelper.MediaState.PAUSED){
+			gameObject.GetComponent<VideoPlaybackBehaviour> ().VideoPlayer.Play (false, gameObject.GetComponent<VideoPlaybackBehaviour> ().VideoPlayer.GetCurrentPosition());
+		}
 	}
 }
